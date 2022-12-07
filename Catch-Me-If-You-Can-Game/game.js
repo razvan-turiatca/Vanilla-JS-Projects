@@ -27,22 +27,18 @@ const renderMap = (map) => {
 
 // movement
 const moveRight = (map, char) => {
-  // let idx = map.indexOf(char)
   return !obstacles.includes(map[idx(char) + 1])
     ? map.slice(0, idx(char)).concat(path, char, map.slice(idx(char) + 2))
     : map
 }
 
 const moveLeft = (map, char) => {
-  // let idx = map.indexOf(char)
   return !obstacles.includes(map[idx(char) - 1])
     ? map.slice(0, idx(char) - 1).concat(char, path, map.slice(idx(char) + 1))
     : map
 }
 
 const moveDown = (map, char) => {
-  // let idx = map.indexOf(char)
-  // console.log(map.slice(0, idx))
   return !obstacles.includes(map[idx(char) + 11])
     ? map
         .slice(0, idx(char))
@@ -52,7 +48,6 @@ const moveDown = (map, char) => {
 }
 
 const moveUp = (map, char) => {
-  // let idx = map.indexOf(char)
   return !obstacles.includes(map[idx(char) - 11])
     ? map
         .slice(0, idx(char) - 11)
@@ -60,15 +55,6 @@ const moveUp = (map, char) => {
         .concat(path, map.slice(idx(char) + 1))
     : map
 }
-
-// const idx = (el) => {
-//   return map.indexOf(el)
-// }
-
-// const shoot = (map) => {
-//   // let idx = map.indexOf(hero)
-//   return map.slice(0, idx(hero) - 1).concat('◅', map.slice(idx(hero)))
-// }
 
 function action(e) {
   if (e.code == 'ArrowDown') {
@@ -85,10 +71,6 @@ function action(e) {
     renderMap(map)
   }
 }
-//  else if (e.keyCode == 32) {
-//   let newMap = shoot(map)
-//   renderMap(newMap)
-// }
 
 function actionEnemy(direction) {
   if (direction == 'Down') {
@@ -105,19 +87,6 @@ function actionEnemy(direction) {
     renderMap(map)
   }
 }
-
-// if()
-
-// if (map.indexOf(hero) < map.indexOf(enemy)) {
-//   let timer = setInterval(() => {
-//     enemyMovement('Up')
-//   }, 500)
-// } else {
-//   clearInterval(timer)
-//   setInterval(() => {
-//     enemyMovement('Down')
-//   }, 500)
-// }
 
 setInterval(() => {
   let idxP = map.indexOf('◉')
