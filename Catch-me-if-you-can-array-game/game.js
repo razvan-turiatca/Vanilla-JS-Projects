@@ -13,11 +13,11 @@ let map = [
 
 // variables
 
-const hero = '◉'
-const enemy = '▣'
-const path = '◻'
-const wall = '▧'
-const obstacles = ['▣', '▧', '◉']
+const hero = 2
+const enemy = 3
+const path = 0
+const wall = 1
+const obstacles = [3, 1, '◉']
 const idx = (char) => {
   return map.indexOf(char)
 }
@@ -39,7 +39,6 @@ const renderMap = (map) => {
     output += '\n'
   })
 
-  console.log(output)
   gameMapContainer.innerHTML = output
 }
 
@@ -56,45 +55,65 @@ const find = (map, el) => {
   })
 }
 
-const moveRight = (map, num) => {
-  find(map, num)
-  map[obj.row][obj.col + 1] = num
+const move = (map, char, y, x) => {
+  // find(map, char)
+  if (!obstacles.includes(map[obj.row + y][obj.col + x])) {
+    map[obj.row + y][obj.col + x] = hero
+    map[obj.row][obj.col] = path
+  }
+
+  return map
+}
+
+const moveRight = (map, char) => {
+  find(map, char)
+  map[obj.row][obj.col + 1] = char
   map[obj.row][obj.col] = 0
   return map
 }
-const moveDown = (map, num) => {
-  find(map, num)
-  map[obj.row + 1][obj.col] = num
+const moveDown = (map, char) => {
+  find(map, char)
+  map[obj.row + 1][obj.col] = char
   map[obj.row][obj.col] = 0
   return map
 }
 
-const moveLeft = (map, num) => {
-  find(map, num)
-  map[obj.row][obj.col - 1] = num
+const moveLeft = (map, char) => {
+  find(map, char)
+
+  map[obj.row][obj.col - 1] = char
   map[obj.row][obj.col] = 0
   return map
 }
 
-const moveUp = (map, num) => {
-  find(map, num)
-  map[obj.row - 1][obj.col] = num
+const moveUp = (map, char) => {
+  find(map, char)
+  map[obj.row - 1][obj.col] = char
   map[obj.row][obj.col] = 0
   return map
 }
 
 function action(e) {
   if (e.code == 'ArrowDown') {
-    moveDown(map, 2)
+    find(map, hero)
+    move(map, hero, 1, 0)
+
     renderMap(map)
   } else if (e.code == 'ArrowUp') {
-    moveUp(map, 2)
+    find(map, hero)
+    move(map, hero, -1, 0)
+
     renderMap(map)
   } else if (e.code == 'ArrowLeft') {
-    moveLeft(map, 2)
+    find(map, hero)
+    move(map, hero, 0, -1)
+
     renderMap(map)
   } else if (e.code == 'ArrowRight') {
-    moveRight(map, 2)
+    find(map, hero)
+    move(map, hero, 0, 1)
+    // map[2][3] = hero
+
     renderMap(map)
   }
 }
