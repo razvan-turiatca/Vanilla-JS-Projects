@@ -1,3 +1,3 @@
 # Weather App
 
-!(weather-app)[assets/weather-app.gif]
+!(WEATHER-APP)[assets/weather-app.gif]
