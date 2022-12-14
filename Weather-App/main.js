@@ -32,10 +32,10 @@ const render = (data) => {
     name,
   } = data
   console.log(data.weather[0].icon)
-  temperature.textContent = `${temp} C`
-  feelsLike.textContent = `Feels: ${feels_like} C`
+  temperature.textContent = `${temp} °C`
+  feelsLike.textContent = `Feels: ${feels_like} °C`
   wind.textContent = `Wind speed: ${speed} km/h`
-  humid.textContent = `Humidity: ${humidity}`
+  humid.textContent = `Humidity: ${humidity}%`
   city.textContent = `${name}, ${country}`
 
   // secondaryContainer.innerHTML = `${speed} km/h`
