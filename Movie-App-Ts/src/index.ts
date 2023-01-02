@@ -1,3 +1,5 @@
-let message: string = 'This is my app running'
+import PopularMovies from './components/PopularMovies'
 
-console.log(message)
+const popularMovies = new PopularMovies()
+console.log('ababa')
+popularMovies.getData()

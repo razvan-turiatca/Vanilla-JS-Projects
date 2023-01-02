@@ -2,8 +2,8 @@
   "compilerOptions": {
     "target": "es6",
     "noImplicitAny": false,
-    // "outDir": "./dist",
-    "outFile": "./dist/index.mjs",
+    "outDir": "./dist",
+    // "outFile": "./dist/index.mjs",
     "rootDir": ".",
     "sourceMap": false
   },

@@ -7,26 +7,43 @@
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./src/index.ts":
 /*!**********************!*\
   !*** ./src/index.ts ***!
   \**********************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("let message = 'This is my app running';\r\nconsole.log(message);\r\n\n\n//# sourceURL=webpack://movie-app-ts/./src/index.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n// import Actors from './ts/domain/Actors'\r\nlet message = 'This is my app running';\r\nconsole.log(message);\r\n\r\n\n\n//# sourceURL=webpack://movie-app-ts/./src/index.ts?");
 
 /***/ })
 
 /******/ 	});
+/************************************************************************/
+/******/ 	// The require scope
+/******/ 	var __webpack_require__ = {};
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /************************************************************************/
 /******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
 /******/ 	var __webpack_exports__ = {};
-/******/ 	__webpack_modules__["./src/index.ts"]();
+/******/ 	__webpack_modules__["./src/index.ts"](0, __webpack_exports__, __webpack_require__);
 /******/ 	
 /******/ })()
 ;
