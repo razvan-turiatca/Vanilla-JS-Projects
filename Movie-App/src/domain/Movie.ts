@@ -4,6 +4,7 @@ export default class Movie {
     public title: string,
     public poster: string,
     public year: number,
+    public language: string,
   ) {}
 
   setName(name: string) {

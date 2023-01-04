@@ -1,4 +1,4 @@
-class TMDBService {
+export default class TMDBService {
   accessKey: string
   baseUrl: string
   constructor() {
@@ -18,5 +18,3 @@ class TMDBService {
   }
   set(options) {}
 }
-
-export default TMDBService

@@ -1,5 +1,7 @@
 import Actor from './domain/Actor'
+import PopularMovies from './components/PopularMovies'
 
-const brad = new Actor('111', 'brad', false, 12, 'm', 'mold')
-
-console.log(brad.name)
+const popularMovies = new PopularMovies(
+  document.querySelector('#popular-movies'),
+)
+popularMovies.getMovies()
