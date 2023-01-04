@@ -1,4 +1,4 @@
-import Movie from '../domain/Movie'
+import Movie, { MovieDataMapper } from '../domain/Movie'
 import TMDBService from '../services/TMDBService'
 
 export default class PopularMovies {
@@ -14,20 +14,8 @@ export default class PopularMovies {
       method: 'GET',
       url: '/movie/popular',
       onSuccess: (data) => {
-        console.log(data)
-        const movies = []
-        data.results.forEach((result) => {
-          const movieData = result
-          const movieObj = new Movie(
-            movieData.id,
-            movieData.title,
-            movieData.poster_path, // check what source poster needs to be downloaded from (52:18)
-            movieData.release_date,
-            movieData.original_language,
-          )
-          movies.push(movieObj)
-        })
-        console.log(movies)
+        const datatMapping = new MovieDataMapper()
+        const movies = datatMapping.map(data.results)
         this.render(movies)
       },
     })
