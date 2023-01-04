@@ -7,14 +7,9 @@ export default class TMDBService {
   }
 
   get({ method, url, onSuccess }) {
-    const xhr = new XMLHttpRequest()
-    xhr.open(method, `${this.baseUrl + url}?api_key=${this.accessKey}`)
-    xhr.send()
-
-    xhr.onload = () => {
-      const data = JSON.parse(xhr.responseText)
-      onSuccess(data)
-    }
+    fetch(`${this.baseUrl + url}?api_key=${this.accessKey}`)
+      .then((res) => res.json())
+      .then((data) => onSuccess(data))
   }
   set(options) {}
 }
