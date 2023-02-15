@@ -28,11 +28,10 @@ const newQuote = () => {
 
   const quote = quotes[randomNumber]
 
-  // Check the quote length to determine the styling
   //check if Author field is blank and replace it with "Unknown"
   authorText.innerText = quote.author || 'Unknown'
 
-  // set smaller font-size for longer quotes
+  // Check the quote length to determine the styling
 
   quote.text.length > 100
     ? quoteText.classList.add('long-quote')
