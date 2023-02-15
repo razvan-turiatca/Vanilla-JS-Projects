@@ -3,10 +3,23 @@ const quoteText = document.getElementById('quote')
 const authorText = document.getElementById('author')
 const twitterBtn = document.getElementById('twitter')
 const newQuoteBtn = document.getElementById('new-quote')
+const loader = document.getElementById('loader')
 
 let quotes = []
 
-// const newQuoteButton = document.getElementById('new-quote')
+// Show Loading
+
+const loading = () => {
+  loader.hidden = false
+  quoteContainer.hidden = true
+}
+
+// Hide Loading
+
+const complete = () => {
+  quoteContainer.hidden = false
+  loader.hidden = true
+}
 
 // show new quote
 const newQuote = () => {
@@ -16,20 +29,25 @@ const newQuote = () => {
   const quote = quotes[randomNumber]
 
   // Check the quote length to determine the styling
+  //check if Author field is blank and replace it with "Unknown"
+  authorText.innerText = quote.author || 'Unknown'
+
+  // set smaller font-size for longer quotes
 
   quote.text.length > 100
     ? quoteText.classList.add('long-quote')
     : quoteText.classList.remove('long-quote')
 
-  quoteText.innerText = quote.text
+  // Set quote, hide loader
 
-  //check if Author field is blank and replace it with "Unknown"
-  authorText.innerText = quote.author || 'Unknown'
+  quoteText.innerText = quote.text
+  complete()
 }
 
 // Get quotes from API
 
 const getQuotes = async () => {
+  loading()
   const apiUrl = 'https://type.fit/api/quotes'
 
   try {
@@ -54,4 +72,5 @@ twitterBtn.addEventListener('click', tweetQuote)
 
 newQuoteBtn.addEventListener('click', newQuote)
 
+// on load
 getQuotes()
