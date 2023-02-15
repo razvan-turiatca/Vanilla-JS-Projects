@@ -7,16 +7,12 @@ const loader = document.getElementById('loader')
 
 let quotes = []
 
-// Show Loading
-
-const loading = () => {
+const showLoadingSpinner = () => {
   loader.hidden = false
   quoteContainer.hidden = true
 }
 
-// Hide Loading
-
-const complete = () => {
+const removeLoadingSpinner = () => {
   quoteContainer.hidden = false
   loader.hidden = true
 }
@@ -40,13 +36,13 @@ const newQuote = () => {
   // Set quote, hide loader
 
   quoteText.innerText = quote.text
-  complete()
+  removeLoadingSpinner()
 }
 
 // Get quotes from API
 
 const getQuotes = async () => {
-  loading()
+  showLoadingSpinner()
   const apiUrl = 'https://type.fit/api/quotes'
 
   try {
